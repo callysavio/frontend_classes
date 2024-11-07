@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML FORMS</title>
+</head>
+
+<body>
+    <form action="/form.php" method="post">
+        <p>
+            First Name:
+            <input type="text" id="fname" name="fname" required />
+        </p>
+        <p>
+            Last Name:
+            <input type="text" id="lname" name="lname" required />
+        </p>
+        <p>
+            Email:
+            <input type="email" id="email" name="email" required />
+        </p>
+        <p> Home Address:
+            <textarea rows="10" cols="100"></textarea>
+        </p>
+
+        <p>
+            <select required>
+                <option value="" name="state">Select your state</option>
+                <option value="Lagos" name="state">Lagos</option>
+                <option value="Enugu" name="state">Enugu</option>
+                <option value="Ebonyi" name="state">Ebonyi</option>
+                <option value="Ogun" name="state">Ogun</option>
+            </select>
+        </p>
+        <br />
+
+        <label for="skills">Skills</label>
+        <input type="checkbox" value="HTML" name="skills1" />HTML
+        <input type="checkbox" value="CSS" name="skills2" />CSS
+        <input type="checkbox" value="JAVASCRIPT" name="skills3" />JAVASCRIPT
+        <br />
+        <label for="male"><input type="radio" value="male" name="gender" />Male</label>
+        <label for="female"><input type="radio" value="female" name="gender" />Female</label>
+        <br />
+        <label for="phone">Phone</label>
+        <input type="tel" id="phone" name="phone" required />
+        <br />
+        <input type="submit" value="submit" />
+        <input type="reset" value="reset" />
+    </form>
+
+    <h1>Hello Peace</h1>
+</body>
+
+</html>
