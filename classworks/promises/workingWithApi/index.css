@@ -48,6 +48,15 @@ label{
     font-weight: 700;
 }
 
+.fa-sun-o{
+    position: absolute;
+    top: 365px;
+    color: #4da674;
+    font-size: 30px;
+    font-weight: 700;
+
+}
+
 button{
     border: none;
     cursor: pointer;
