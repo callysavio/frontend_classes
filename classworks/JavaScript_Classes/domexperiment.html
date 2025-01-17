@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Js task</title>
+    <style></style>
+  </head>
+  <body>
+    <center>
+      <div class="to-do-container">
+        <input type="text" name="" id="input" placeholder="add a task" />
+        <button id="addTask" type="submit">Add task</button>
+        <ul id="taskList"></ul>
+        <button id="clearBtn" type="reset">clear completed</button>
+      </div>
+
+      <script>
+        let input = document.getElementById("input");
+        let addTask = document.getElementById("addTask");
+        let list = document.querySelector("taskList");
+        let clearBtn = document.getElementById("clearBtn");
+
+        addTask.addEventListener("click", function () {
+          const taskText = input.value;
+
+          if (taskText !== "") {
+            const taskItem = document.createElement("li");
+            taskItem.innerHTML = `
+            <span>${taskText}</span>
+            <button class="complete">Complete</button>
+            <button class="delete">Delete</button>
+        `;
+
+            taskList.appendChild(taskItem);
+
+            input.value = "";
+          }
+        });
+
+        taskList.addEventListener("click", function (event) {
+          if (event.target.classList.contains("complete")) {
+            const taskItem = event.target.parentElement;
+            if (taskItem.classList.contains("completed")) {
+              taskItem.classList.remove("completed");
+            } else {
+              taskItem.classList.add("completed");
+            }
+          }
+
+          if (event.target.classList.contains("delete")) {
+            const taskItem = event.target.parentElement;
+            taskList.removeChild(taskItem);
+          }
+        });
+
+        clearBtn.addEventListener("click", function () {
+          taskList.innerHTML = "";
+        });
+      </script>
+    </center>
+  </body>
+</html>
