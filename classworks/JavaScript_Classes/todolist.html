@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./todolist.css">
+</head>
+
+    <body>
+        <div class="todo-con">
+            <h1>Todo-List</h1>
+            <div class="input-con">
+                <input type="text" id="task-input" placeholder="Enter a new task" />
+                <button class="add-btn">Add Task</button>
+            </div>
+            <div class="task-list" id="list-child">
+    
+            </div>
+        </div>
+    
+        <script >
+            document.querySelector('.add-btn').addEventListener('click', function() {
+                const taskInput = document.getElementById('task-input');
+                const taskText = taskInput.value.trim();
+
+                if (taskText) {
+                    addTask(taskText);
+                    taskInput.value = ''; // Clear input after adding task
+                }
+            });
+
+function addTask(taskText) {
+    const taskList = document.getElementById('list-child');
+
+    // Create a task item
+    const taskItem = document.createElement('div');
+    taskItem.classList.add('task-item');
+  
+    const taskBtnCon = document.createElement('div');
+    taskItem.classList.add('task-btn-con');
+
+    // Create the task text element
+    const taskTextElem = document.createElement('span');
+    taskTextElem.textContent = taskText;
+
+    // Create the "Completed" button
+    const completedButton = document.createElement('button');
+    completedButton.classList.add('completed-btn');
+    completedButton.textContent = 'Complete';
+    completedButton.addEventListener('click', function() {
+        taskTextElem.classList.add('completed');
+       
+    });
+
+    // Create the "Delete" button
+    const deleteButton = document.createElement('button');
+    deleteButton.classList.add('delete-btn');
+    deleteButton.textContent = 'Delete';
+    deleteButton.addEventListener('click', function() {
+        taskList.removeChild(taskItem);
+    });
+  
+  // Append buttons to button con
+    taskBtnCon.appendChild(completedButton);
+    taskBtnCon.appendChild(deleteButton);
+    
+
+    // Append everything to the task item
+    taskItem.appendChild(taskTextElem);
+   taskItem.appendChild(taskBtnCon);
+   
+
+    // Append the task item to the task list
+    taskList.appendChild(taskItem);
+
+    document.querySelector('.add-btn').addEventListener('click', function() {
+    const taskInput = document.getElementById('task-input');
+    const taskText = taskInput.value.trim();
+
+    if (taskText) {
+        addTask(taskText);
+        taskInput.value = ''; // Clear input after adding task
+    }
+});
+}
+        </script>
+    </body>
+
+    </div>
+</body>
+</html>
