@@ -1,36 +1,19 @@
-// class Rectangle {
-//     constructor(width, height) {
-//         this.width = width,
-//         this.height = height
-//     }
-//     //methods
-//     calcArea() {
-//         let area = this.width * this.height
-//         console.log(area)
-//         return area
-//     }
-// }
-
-const width = document.getElementById('width')
-const height = document.getElementById('height')
-const btn = document.getElementById('btn')
-
-btn.addEventListener('click', calcArea())
-
-// function to add width and height to the input field
-function addWidthHeight (){
-    const recWidth = parseFloat(width.value);
-    const recHeight = parseFloat(height.value);
-
-    // validate input
-    if (isNaN(recWidth) || isNaN(recHeight) || recWidth <= 0 || recHeight <= 0) {
-        alert('Please enter valid positive numbers for width and height.')
-        return
+class Rectangle {
+    constructor(width, height) {
+        this.width = width,
+        this.height = height
     }
-   
+    //methods
+    calcArea() {
+        let area = this.width * this.height
+        return `Area = ${area}`
+    }
+    calcPerimeter() {
+        let perimeter = 2 * (this.width + this.height)
+        return `Perimeter = ${perimeter}`
+    }
 }
-// let rectangle = new Rectangle(recWidth, recHeight)
 
-// rectangle.calcArea()
-
-// function to display area in the DOM
+const rec1 = new Rectangle(20,40)
+console.log(rec1.calcArea())
+console.log(rec1.calcPerimeter())
