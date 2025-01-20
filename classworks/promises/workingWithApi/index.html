@@ -12,15 +12,15 @@
         <h1>Welcome to T-Weather</h1>
         <div class="city-input">
             <label for="city">City:</label>
-            <input type="text" class="text-input" id="textInput" placeholder="Enter your city">
-            <button><i class="fa fa-search" aria-hidden="true"></i></button>
+            <input type="text" class="text-input" id="cityInput" placeholder="Enter your city">
+            <button onclick="getWeather()"><i class="fa fa-search" aria-hidden="true"></i></button>
         </div>
         <div class="weather-result" id="weatherResult">
-            <h3 id="city">Lagos</h3>
-            <i class="fa fa-sun-o" aria-hidden="true"></i>
-            <h3 id="temperature">36<sup>o</sup>C</h3>
+            <!-- <h3 id="city">Lagos</h3> -->
+            <!-- <i class="fa fa-sun-o" aria-hidden="true"></i> -->
+            <!-- <h3 id="temperature">36<sup>o</sup>C</h3> -->
         </div>
     </div>
-    <script src="../workingWithApi/index.js"></script>
+    <script src="../workingWithApi/weather.js"></script>
 </body>
 </html>
