@@ -18,7 +18,7 @@ class BankAccount {
 
   // Method to withdraw money
   withdraw(amount) {
-    if ((amount = 0 && amount <= this.balance)) {
+    if ((amount > 0 && amount <= this.balance)) {
       this.balance -= amount;
       return `
               Withdrew: $${amount}
@@ -44,6 +44,14 @@ class BankAccount {
 // For the first account i have an initial balance of $500
 // I then deposit $200 and withdraw $400. Finally, I get the account balance.
 const firstAccount = new BankAccount("00123456789", 500);
+const secondAccount = new BankAccount("11223355667", 4000)
+
+// Transactions on the first account
 console.log(firstAccount.deposit(200));
-console.log(firstAccount.withdraw(100));
+console.log(firstAccount.withdraw(400));
 console.log(firstAccount.getBalance());
+
+// Transactions on the second account
+console.log(secondAccount.deposit(1000));
+console.log(secondAccount.withdraw(6000)); //Tried to withdraw above my balance
+console.log(secondAccount.getBalance());
