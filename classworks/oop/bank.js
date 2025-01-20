@@ -1,46 +1,49 @@
+// Note: in the methods I used "return" instead of console.log so I won't always get "undefined' in my result
 class BankAccount {
   constructor(accountNumber, balance) {
     this.accountNumber = accountNumber,
-    this.balance = balance
+    this.balance = balance;
   }
   // Methods to deposit money
   deposit(amount) {
     if (amount > 0) {
       this.balance += amount;
-      console.log(`
-                Desosited ${amount}
-                To ${this.accountNumber}
-                Balance = ${this.balance}
-            `);
-    } else console.log("Deposited amount should be a postive amount.");
+      return `
+                Desosited: $${amount}
+                To: ${this.accountNumber}
+                Balance = $${this.balance}
+            `;
+    } else return "Deposited amount should be a postive amount.";
   }
 
   // Method to withdraw money
   withdraw(amount) {
-    if (amount = 0 && amount <= this.balance) {
+    if ((amount = 0 && amount <= this.balance)) {
       this.balance -= amount;
-      console.log(`
-                        Withdrew ${amount}
-                        From ${this.accountNumber}
-                        Balance = ${this.balance}
-                `);
+      return `
+              Withdrew: $${amount}
+              From: ${this.accountNumber}
+              Balance = $${this.balance}
+      `;
     } else if (amount > this.balance) {
-      console.log("Insufficient funds to withdraw");
+      return "Insufficient funds to withdraw";
     } else {
-      console.log("Withdrawal amount must be a postive amount");
+      return "Withdrawal amount must be a positive amount";
     }
   }
 
-    //  Method to get balance
-    getBalance(){
-        console.log(`
+  //  Method to get balance
+  getBalance() {
+    return `
             Account Number: ${this.accountNumber}
             Balance: $${this.balance}
-        `)
-    }
+    `;
+  }
 }
 
-const firstAccount = new BankAccount ("00123456789", 500);
-console.log(firstAccount.deposit(200))
-console.log(firstAccount.withdraw(600))
+// For the first account i have an initial balance of $500
+// I then deposit $200 and withdraw $400. Finally, I get the account balance.
+const firstAccount = new BankAccount("00123456789", 500);
+console.log(firstAccount.deposit(200));
+console.log(firstAccount.withdraw(100));
 console.log(firstAccount.getBalance());
